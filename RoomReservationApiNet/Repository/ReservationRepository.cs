@@ -19,6 +19,7 @@ namespace RoomReservationApiNet.Repository
       var reservations = await _context.Reservations
           .Include(r => r.User)
           .Include(r => r.Room)
+            .ThenInclude(room => room.RoomType)
           .Include(r => r.Status)
           .ToListAsync();
 
@@ -30,6 +31,18 @@ namespace RoomReservationApiNet.Repository
         {
           Email = r.User.Email,
           FullName = r.User.FullName
+        },
+        Room = new RoomDTO
+        {
+          RoomId = r.Room.RoomId,
+          RoomNumber = r.Room.RoomNumber,
+          RoomTypeId = r.Room.RoomTypeId,
+          RoomTypeName = r.Room.RoomType?.RoomTypeName,
+          PricePerNight = r.Room.RoomType?.PricePerNight ?? 0,
+          Description = r.Room.RoomType?.Description,
+          Capacity = r.Room.RoomType?.Capacity ?? 0,
+          IsActive = r.Room.IsActive,
+          ImageRoom = r.Room.ImageRoom
         },
         RoomId = r.RoomId,
         ReservationDate = r.ReservationDate,
@@ -49,6 +62,7 @@ namespace RoomReservationApiNet.Repository
       var reservations = await _context.Reservations
           .Include(r => r.User)
           .Include(r => r.Room)
+            .ThenInclude(room => room.RoomType)
           .Include(r => r.Status)
           .Where(r => r.User.Email == email)
           .ToListAsync();
@@ -61,6 +75,18 @@ namespace RoomReservationApiNet.Repository
         {
           Email = r.User.Email,
           FullName = r.User.FullName
+        },
+        Room = new RoomDTO
+        {
+          RoomId = r.Room.RoomId,
+          RoomNumber = r.Room.RoomNumber,
+          RoomTypeId = r.Room.RoomTypeId,
+          RoomTypeName = r.Room.RoomType?.RoomTypeName,
+          PricePerNight = r.Room.RoomType?.PricePerNight ?? 0,
+          Description = r.Room.RoomType?.Description,
+          Capacity = r.Room.RoomType?.Capacity ?? 0,
+          IsActive = r.Room.IsActive,
+          ImageRoom = r.Room.ImageRoom
         },
         RoomId = r.RoomId,
         ReservationDate = r.ReservationDate,
@@ -123,6 +149,7 @@ namespace RoomReservationApiNet.Repository
         var reservations = await _context.Reservations
           .Include(r => r.User)
           .Include(r => r.Room)
+            .ThenInclude(room => room.RoomType)
           .Include(r => r.Status)
           .Where(r => r.RoomId == roomId && r.StatusId != 5 && r.StatusId != 6) // Exclude cancelled/no-show
           .ToListAsync();
@@ -135,6 +162,18 @@ namespace RoomReservationApiNet.Repository
             {
                 Email = r.User.Email,
                 FullName = r.User.FullName
+            },
+            Room = new RoomDTO
+            {
+                RoomId = r.Room.RoomId,
+                RoomNumber = r.Room.RoomNumber,
+                RoomTypeId = r.Room.RoomTypeId,
+                RoomTypeName = r.Room.RoomType?.RoomTypeName,
+                PricePerNight = r.Room.RoomType?.PricePerNight ?? 0,
+                Description = r.Room.RoomType?.Description,
+                Capacity = r.Room.RoomType?.Capacity ?? 0,
+                IsActive = r.Room.IsActive,
+                ImageRoom = r.Room.ImageRoom
             },
             RoomId = r.RoomId,
             ReservationDate = r.ReservationDate,

@@ -5,6 +5,7 @@ namespace RoomReservationApiNet.DTOs
         public int ReservationId { get; set; }
         public int StatusId { get; set; }
         public UserDTO? User { get; set; }
+        public RoomDTO? Room { get; set; }
         public int RoomId { get; set; }
         public DateTime ReservationDate { get; set; }
         public DateTime CheckInDate { get; set; }
