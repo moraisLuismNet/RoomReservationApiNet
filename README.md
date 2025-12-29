@@ -229,7 +229,7 @@ https://localhost:7107/swagger/index.html
 - Reservations: Room reservations
 - EmailQueue: Email queue
   
-</kbd><kbd>
+<kbd>
   <img src="img/RoomReservationDB.png" width="25%" alt="RoomReservationDB">
 </kbd>  
 
