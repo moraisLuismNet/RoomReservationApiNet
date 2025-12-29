@@ -16,14 +16,10 @@ API for managing room reservations with ASP.NET Core 8 and SQL Server.
 - Availability validations
 - Advanced error handling
 
-<kbd>
-  <img src="img/01.png" width="49%" alt="RoomReservationApiNet_01">
-</kbd>
-<kbd>
-  <img src="img/02.png" width="47%" alt="RoomReservationApiNet_02">
-</kbd><kbd>
-  <img src="img/03.png" width="50%" alt="RoomReservationApiNet_03">
-</kbd>
+| | | |
+| :---: | :---: | :---: |
+| <kbd><img src="img/01.png" width="45%" alt="RoomReservationApiNet_01"></kbd> | <kbd><img src="img/02.png" width="50%" alt="RoomReservationApiNet_02"></kbd> | <kbd><img src="img/03.png" width="50%" alt="RoomReservationApiNet_03"></kbd> |
+
 
 RoomReservationApiNet/  
 ├── Controllers/  
